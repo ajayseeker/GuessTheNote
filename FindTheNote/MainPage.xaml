@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FindTheNote.MainPage" BackgroundImageSource="NotesBackGround.jpg">
+
+        <StackLayout>
+            <Frame BackgroundColor="Black" Padding="24" CornerRadius="0">
+                <Label Text="Guess The Note" HorizontalTextAlignment="Center" TextColor="LightGoldenrodYellow" FontSize="36"/>
+            </Frame>
+            <Frame BackgroundColor="Silver">
+                <Picker ItemsSource="{Binding Notes, Mode=TwoWay}" SelectedItem="{Binding NoteSelected,Mode=TwoWay}" IsEnabled="{Binding IsPlaying, Mode=TwoWay}"/>
+            </Frame>
+        <Frame VerticalOptions="EndAndExpand" IsVisible="{Binding IsNotPlaying, Mode=TwoWay}" Margin="0,100,0,0" BackgroundColor="AliceBlue">
+                <Label Text="{Binding Reply, Mode=TwoWay}" IsVisible="{Binding IsNotPlaying, Mode=TwoWay}" />
+            </Frame>
+            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                <Button Text="Start" WidthRequest="150" Command="{Binding StartCommand, Mode=TwoWay}" IsEnabled="{Binding IsNotPlaying, Mode=TwoWay}"/>
+                <Button Text="Submit" WidthRequest="150" Command="{Binding AnsweredCommand, Mode=TwoWay}" IsEnabled="{Binding IsPlaying, Mode=TwoWay}"/>
+            </StackLayout>
+        <Button Text="Tanpura" Command="{Binding TanpuraCommand, Mode=TwoWay}" Margin="5"/>
+    </StackLayout>
+</ContentPage>

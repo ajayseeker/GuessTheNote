@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FindTheNote.Tanpura" BackgroundImageSource="NotesBackGround.jpg">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Black" Margin="5,0,0,0">
+                <Label Text="Tanpura" FontSize="36" HorizontalOptions="Center" TextColor="Silver"/>
+            </Frame>
+            <Frame BackgroundColor="LightGray"  VerticalOptions="EndAndExpand">
+                <Picker SelectedItem="{Binding NoteSelected, Mode=TwoWay}" ItemsSource="{Binding Notes, Mode=TwoWay}" />
+            </Frame>
+            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                <Button Text="Play" WidthRequest="150" Command="{Binding PlayCommand, Mode=TwoWay}" IsEnabled="{Binding IsNotPlaying, Mode=TwoWay}"/>
+                <Button Text="Stop" WidthRequest="150" Command="{Binding StopCommand, Mode=TwoWay}" IsEnabled="{Binding IsPlaying, Mode=TwoWay}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
